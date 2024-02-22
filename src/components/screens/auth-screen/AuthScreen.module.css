@@ -1,0 +1,16 @@
+.formWrapper {
+	margin: auto;
+	padding: 35px;
+	padding-top: 25px;
+	max-width: 312px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: #fff;
+	border-radius: 10px;
+	z-index: 15;
+}
+
+.logo {
+	margin-bottom: 15px;
+}

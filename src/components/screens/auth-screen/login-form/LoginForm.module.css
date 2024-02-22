@@ -1,0 +1,34 @@
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form span {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.form input {
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid rgb(34, 34, 34, 0.6);
+}
+
+.buttonBody {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.form .buttonBody {
+	display: flex;
+	justify-content: center;
+}
+
+.form .buttonBody button {
+	display: inline-block;
+	padding: 7px 25px;
+	background-color: #2596be;
+	border-radius: 10px;
+}
