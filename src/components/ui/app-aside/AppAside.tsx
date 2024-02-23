@@ -1,28 +1,33 @@
+import { useDispatch } from 'react-redux'
+import { setScreen } from '../../../redux/slices/navSlice'
 import styles from './AppAside.module.css'
 
 export const AppAside = () => {
-    return (
-        <aside className={styles.aside}>
-            <div className={styles.coins}>100$</div>
-            <nav className={styles.nav}>
-                <ul>
-                    <li>
-                        <a href=''>пункт меню 1</a>
-                    </li>
-                    <li>
-                        <a href=''>пункт меню 2</a>
-                    </li>
-                    <li>
-                        <a href=''>пункт меню 3</a>
-                    </li>
-                    <li>
-                        <a href=''>пункт меню 4</a>
-                    </li>
-                    <li>
-                        <a href=''>пункт меню 5</a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-    )
+	const dispatch = useDispatch()
+
+	return (
+		<aside className={styles.aside}>
+			<div className={styles.coins}>100$</div>
+			<nav className={styles.nav}>
+				<ul>
+					<li className={styles.navItem}>
+						<button
+							className='active'
+							onClick={() => dispatch(setScreen('profile'))}
+						>
+							Профиль
+						</button>
+					</li>
+					<li className={styles.navItem}>
+						<button onClick={() => dispatch(setScreen('store'))}>
+							KIBERstore
+						</button>
+					</li>
+					<li className={styles.navItem}>
+						<button onClick={() => dispatch(setScreen('more'))}>Другое</button>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+	)
 }

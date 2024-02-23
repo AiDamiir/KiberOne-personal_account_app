@@ -1,3 +1,3 @@
-export interface homeState {
-	page: string
+export interface navState {
+	screen: string
 }
