@@ -1,15 +1,20 @@
+import { BackgroundAnim } from '../../ui/background-anim/BackgroundAnim'
 import styles from './AuthScreen.module.css'
-import { LoginForm } from './login-form/LoginForm'
+import { SignForm } from './sign-form/SignForm'
 
 export const AuthScreen = () => {
 	return (
-		<>
-			<div className={styles.formWrapper}>
-				<div className={styles.logo}>
-					<img src='./logo.jpg' alt='Логотип' style={{ width: '120px' }} />
+		<BackgroundAnim>
+			<div className={styles.loginField}>
+				<div className={styles.loginBackground}>
+					<div className={styles.logo}>
+						<img src='./logo.jpg' alt='' />
+					</div>
+					<div className={styles.loginForm}>
+						<SignForm />
+					</div>
 				</div>
-				<LoginForm />
 			</div>
-		</>
+		</BackgroundAnim>
 	)
 }

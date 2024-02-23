@@ -3,11 +3,13 @@ import styles from './ProfileScreen.module.css'
 export const ProfileScreen = () => {
 	return (
 		<div className={styles.profilePage}>
-			<div className={styles.profileBackground}></div>
+			<div className={styles.profileCover}></div>
 
 			<div className={styles.userBlock}>
-				<div className={styles.userImage}></div>
-				<div>
+				<div className={styles.userImage}>
+					<img src='./emptyProfile.jpg' alt='' />
+				</div>
+				<div className={styles.userInfo}>
 					<div className={styles.username}>Иванов Иван</div>
 					<div>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
 				</div>

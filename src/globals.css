@@ -19,7 +19,6 @@ body {
 	overflow-y: scroll;
 	color: #000;
 	font-size: 16px;
-	background: #e7f6ff;
 }
 
 input,
@@ -61,9 +60,10 @@ img {
 
 .wrapper {
 	display: flex;
-	min-height: 100vh;
+	min-height: 100%;
 	flex-direction: column;
-	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+	background-color: rgb(237, 238, 240);
 }
 
 .page {
@@ -78,10 +78,37 @@ img {
 }
 
 .homeWrapper {
-	margin: 30px auto;
+	position: relative;
+	z-index: 100;
+	margin: 0 auto;
 	padding: 30px;
 	min-height: calc(100vh - 60px);
 	display: flex;
 	border-radius: 15px;
-	background-color: #fff;
+	backdrop-filter: blur(20px);
+}
+
+.navIcon {
+	display: none;
+}
+
+.menu__icon {
+	display: none;
+}
+
+@media (max-width: 760px) {
+	.homeWrapper {
+		padding: 0;
+	}
+
+	.navIcon {
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		width: 50px;
+		height: 50px;
+		z-index: 101;
+		display: block;
+		background-color: #000;
+	}
 }

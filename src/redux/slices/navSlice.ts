@@ -3,6 +3,7 @@ import { navState } from '../../interfaces/home'
 
 const initialState: navState = {
 	screen: 'profile',
+	navOpened: false,
 }
 
 const navSlice = createSlice({
@@ -12,8 +13,11 @@ const navSlice = createSlice({
 		setScreen(state, action: PayloadAction<string>) {
 			state.screen = action.payload
 		},
+		toggleNavIcon(state, _: PayloadAction<boolean>) {
+			state.navOpened = !state.navOpened
+		},
 	},
 })
 
-export const { setScreen } = navSlice.actions
+export const { setScreen, toggleNavIcon } = navSlice.actions
 export default navSlice.reducer
