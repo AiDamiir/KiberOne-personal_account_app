@@ -8,7 +8,7 @@ export const AuthScreen = () => {
 			<div className={styles.loginField}>
 				<div className={styles.loginBackground}>
 					<div className={styles.logo}>
-						<img src='./logo.jpg' alt='' />
+						<img src='./img/logo.jpg' alt='' />
 					</div>
 					<div className={styles.loginForm}>
 						<SignForm />

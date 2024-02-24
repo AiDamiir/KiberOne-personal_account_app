@@ -1,17 +1,42 @@
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../redux/store'
+import { data } from '../auth-screen/data'
 import styles from './ProfileScreen.module.css'
 
 export const ProfileScreen = () => {
+	const token = useSelector((state: RootState) => state.auth.token)
+	const [item, setItem] = useState({
+		token: '',
+		username: '',
+		password: '',
+		name: '',
+		lastName: '',
+		desription: '',
+		finishedModules: [''],
+		upcomingModules: [''],
+	})
+
+	useEffect(() => {
+		data.map((dataItem) => {
+			if (dataItem.token === token) {
+				setItem(dataItem)
+			}
+			return
+		})
+	}, [])
+
 	return (
 		<div className={styles.profilePage}>
-			<div className={styles.profileCover}></div>
-
 			<div className={styles.userBlock}>
 				<div className={styles.userImage}>
-					<img src='./emptyProfile.jpg' alt='' />
+					<img src='./img/emptyProfile.jpg' alt='' />
 				</div>
 				<div className={styles.userInfo}>
-					<div className={styles.username}>Иванов Иван</div>
-					<div>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
+					<div className={styles.username}>
+						{item.lastName} {item.name}
+					</div>
+					<div>{item.desription}</div>
 				</div>
 			</div>
 
@@ -19,21 +44,17 @@ export const ProfileScreen = () => {
 				<div className={styles.modules}>
 					<h2>Пройденные модули</h2>
 					<ul>
-						<li>Lorem ipsum dolor sit amet consectetur adipisicing!</li>
-						<li>
-							Lorem sit amet consectetur adipisicing elit. Sint, perferendis!
-						</li>
-						<li>
-							Lorem ipsum dolor sit amet adipisicing elit. Sint, perferendis!
-						</li>
+						{item.finishedModules.map((item, index) => (
+							<li key={index}>{item}</li>
+						))}
 					</ul>
 				</div>
 				<div className={styles.modules}>
 					<h2>Предстоящие модули</h2>
 					<ul>
-						<li>Lorem ipsum elit. Sint, perferendis!</li>
-						<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-						<li>Lorem ipsum dolor sit amet consectetur. Sint, perferendis!</li>
+						{item.upcomingModules.map((item, index) => (
+							<li key={index}>{item}</li>
+						))}
 					</ul>
 				</div>
 			</div>

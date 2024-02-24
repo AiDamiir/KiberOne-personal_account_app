@@ -23,7 +23,7 @@ export const AppAside = () => {
 		<aside
 			className={navOpened ? `${styles.aside} ${styles.active}` : styles.aside}
 		>
-			<div className={styles.coins}>100$</div>
+		
 			<nav className={styles.nav}>
 				<ul>
 					{navLinks.map((item) => (

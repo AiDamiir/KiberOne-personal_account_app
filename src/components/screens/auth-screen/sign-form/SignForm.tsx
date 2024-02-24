@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { loginSuccess } from '../../../../redux/slices/authSlice'
+import {
+	loginSuccess,
+	setCash,
+	setToken,
+} from '../../../../redux/slices/authSlice'
+import { data } from '../data'
 import styles from './SignForm.module.css'
 
 export const SignForm = () => {
@@ -17,7 +22,20 @@ export const SignForm = () => {
 			// 	api_key: password,
 			// })
 
-			dispatch(loginSuccess())
+			const user = data.find(
+				(item) => item.username === username && item.password === password
+			)
+
+			if (user) {
+				dispatch(setCash(user.cash))
+				dispatch(setToken(user.token))
+				dispatch(loginSuccess())
+			} else {
+				setUsername('')
+				setPassword('')
+				console.error('Ошибка: ...', error)
+				alert('Неправильный логин или пароль.')
+			}
 		} catch (error) {
 			console.error('Ошибка:', error)
 			setError(
@@ -28,7 +46,6 @@ export const SignForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			{error && <span>{error}</span>}
 			<div className={styles.field + ' ' + styles.usernameField}>
 				<input
 					type='text'

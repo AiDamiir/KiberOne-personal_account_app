@@ -1,16 +1,11 @@
 .aside {
 	margin-right: 30px;
 	display: flex;
+	min-height: calc(100vh - 60px);
 	flex-direction: column;
 	align-items: center;
 	border-radius: 15px;
 	background-color: #fff;
-}
-
-.coins {
-	margin-top: 15px;
-	padding: 5px 15px;
-	background-color: #f7c90e;
 }
 
 .nav {
@@ -50,9 +45,13 @@ a {
 	}
 
 	.nav {
+		margin-top: 100px;
 		width: 100%;
 	}
 }
 
-@media (max-width: 560px) {
+@media (max-width: 760px) {
+	.aside {
+		min-height: 100vh;
+	}
 }

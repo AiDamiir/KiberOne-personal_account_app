@@ -16,6 +16,7 @@
 		rgba(255, 255, 255, 0.7)
 	);
 	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 	color: #111;
 	font-size: 16px;
 }
